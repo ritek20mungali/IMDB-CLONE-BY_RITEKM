@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Movie Details</title>
+    <!-- Include any necessary CSS and JavaScript files here -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="movieDetailsCard" class="card">
+        <img id="movieDetailsPoster" class="card-img-top" src="" alt="Movie Poster">
+        <div class="card-body">
+            <h5 id="movieDetailsTitle" class="card-title"></h5>
+            <p id="movieDetailsActors" class="card-text"></p>
+            <p id="movieDetailsGenre" class="card-text"></p>
+            <p id="movieDetailsImdbRating" class="card-text"></p>
+            <p id="movieDetailsReleased" class="card-text"></p>
+            <!-- Add other movie details here (e.g., Plot, Director, etc.) -->
+            <!-- Add this button inside the movie details card -->
+            <button id="closeDetailsBtn" class="btn btn-primary">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to fetch movie details using the imdbID from localStorage
+        document.addEventListener("DOMContentLoaded", function () {
+            var imdbID = localStorage.getItem("imdbID");
+
+            if (imdbID) {
+                var apikey = "c8204f21";
+                var detailsUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdbID;
+
+                $.ajax({
+                    url: detailsUrl,
+                    method: "GET",
+                    timeout: 0,
+                    success: function (data) {
+                        console.log(data);
+                        // Save the movie details to localStorage
+                        localStorage.setItem("movieDetails", JSON.stringify(data));
+
+                        // Populate the movie details in the card
+                        $("#movieDetailsPoster").attr("src", data.Poster);
+                        $("#movieDetailsTitle").text("Movie Name: " + data.Title);
+                        $("#movieDetailsActors").text("Actors: " + data.Actors);
+                        $("#movieDetailsGenre").text("Genre: " + data.Genre);
+                        $("#movieDetailsImdbRating").text("IMDb Rating: " + data.imdbRating + "/10");
+                        $("#movieDetailsReleased").text("Released: " + data.Year);
+                        // Add other movie details here (e.g., Plot, Director, etc.)
+
+                        // Show the movie details card
+                        $("#movieDetailsCard").removeClass("d-none");
+                    },
+                    error: function () {
+                        // Handle error if details cannot be fetched
+                        console.log("Error fetching movie details.");
+                    }
+                });
+            } else {
+                // If imdbID is not found, show an error message or handle as needed
+                console.log("No imdbID found in localStorage.");
+            }
+        });
+
+        // Event delegation for the "Close" button inside the movie details card
+        document.addEventListener("click", function (event) {
+            if (event.target && event.target.id === "closeDetailsBtn") {
+                // Hide the movie details card
+                document.getElementById("movieDetailsCard").classList.add("d-none");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,346 @@
+/* Set a background color and font-family */
+body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the container */
+.container {
+    width:900;
+    height: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-top: 10px;
+    padding-top: 0px;
+    background-image: url("https://getwallpapers.com/wallpaper/full/5/d/c/1455845-best-yellow-and-black-wallpaper-1920x1080.jpg");
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(20px);
+}
+
+.cont{
+    max-width: 600px;
+    height: 250px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px 40px 5px;
+    border: 2px solid black;
+    margin-top: 20px;
+    padding-top: 0px;
+    transition: transform 0.5s ease-in-out;
+    
+}
+
+.cont:hover{
+    transform: scale(1.1); 
+    
+}
+
+/* Style the heading */
+h1 {
+    font-size: 36px;
+    text-align: center;
+    color: black;
+    font-family:sans-serif;
+    font-weight: 700;
+    margin-right: 70px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+}
+
+/* Style the form */
+#movieForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%;
+    max-width: 400px;
+}
+
+label {
+    font-size: 21px;
+    font-weight: 600;
+    margin: 15px;
+    margin-left: 60px;
+    text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+input.form-control {
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    width: 100%;
+    margin-left: 10px;
+}
+
+button.btn {
+    font-size: 18px;
+    margin-top: 10px;
+    margin: 10px;
+    font-family:sans-serif;
+    margin-left: 30px;
+    width: 200px;
+    box-shadow: 4px 4px 6px red;
+      
+}
+
+#favrBtn{
+    font-size: 18px;
+    margin-top: 10px;
+    margin: 10px;
+    font-family:sans-serif;
+    margin-left: 30px;
+    width: 200px;
+    box-shadow: 4px 4px 6px red;
+}
+
+/* Style the result */
+#result {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+ .card {
+    
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px 40px 5px;
+    height: auto;
+    max-width: 450px;
+    margin: auto;
+    background-color: rgb(28, 27, 27);
+    box-shadow: 4px 4px 6px rgb(226, 248, 104);
+    margin-bottom: 20px;
+    transition: transform 0.5s ease-in-out; /* Add transition property for smooth effect */
+}
+
+/* Hover effect to expand the card */
+.card:hover {
+    transform: scale(1.1); /* Increase the size by 10% */
+}
+
+
+
+.card-img-top {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 2px 4px 6px white;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.card-text {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color:white;
+}
+
+
+
+/* Custom CSS for the "FAVORITES" section and movie cards */
+
+/* Styling for the "AddFavr" container */
+#AddFavr {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: rgb(34, 32, 32);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the "FAVORITES" heading */
+  #AddFavr h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 2px 4px 2px rgb(176, 176, 86);
+    color: yellow;
+  }
+  
+  /* Styling for the "favorites" container */
+  #favorites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  /* Styling for individual movie cards */
+  .card {
+    width:auto;
+    /* width: calc(33.33% - 20px); Adjust width as needed for three cards in a row */
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* To prevent margin collapsing */
+  }
+  
+  .card img {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for "Details" button */
+  .details {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .details:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for "Remove from Favorites" button */
+  .delete {
+    background-color: #dc3545;
+    margin:8px;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete:hover {
+    background-color: #c82333;
+  }
+
+
+  /* CSS to style the movie details card */
+#movieDetailsCard {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    border-radius: 25px;
+    padding: 10px;
+    background-color: rgb(26, 24, 24);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Set initial opacity to 0 for smooth fadeIn animation */
+    animation: fadeIn 0.3s ease-in-out forwards; /* Add fadeIn animation */
+    box-shadow: 4px 4px 4px grey;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+#movieDetailsPoster {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #fff;
+}
+
+#movieDetailsTitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+#closeDetailsBtn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 4px 4px aqua;
+}
+
+#closeDetailsBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Style the card body to center its contents */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+  
+.details{
+    margin: 8px;
+}
+
+/* imdb rating style */
+
+#movieDetailsImdbRating{
+    box-shadow: 3px 3px 3px 3px  rgb(230, 230, 104);
+    margin: 4px;
+    margin-bottom: 6px;
+}
+
+/* add to favorites */
+.addToFavorites{
+    background-color: green;
+    box-shadow: 4px 2px 4px greenyellow;
+    border:2px solid green;
+
+}
+
+.addToFavorites:hover{
+    background-color: green;
+    box-shadow: 4px 2px 4px greenyellow;
+    border:2px solid green;
+
+}
