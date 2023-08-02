@@ -11,7 +11,7 @@ $(document).ready(function () {
         }
 
         var settings = {
-            "url": "http://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie, // Use 's' instead of 't'
+            "url": "https://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie, // Use 's' instead of 't'
             "method": "GET",
             "timeout": 0,
         };
@@ -77,7 +77,7 @@ $(document).ready(function () {
         var favoritesHTML = ""; // Initialize an empty string to store the HTML for favorites
 
         favorites.forEach(function (imdbID) {
-            var detailsUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdbID;
+            var detailsUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdbID;
             $.ajax({
                 url: detailsUrl,
                 method: "GET",
@@ -119,7 +119,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".details", function () {
         var imdbID = $(this).data("imdbid");
-        var detailsUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdbID;
+        var detailsUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdbID;
 
         $.ajax({
             url: detailsUrl,
