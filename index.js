@@ -1,8 +1,3 @@
-
-
-
-
-
 $(document).ready(function () {
     var apikey = "c8204f21";
     var timeoutId; // To store the timeout ID for debounce
@@ -22,7 +17,7 @@ $(document).ready(function () {
         };
 
         $.ajax(settings).done(function (data) {
-            console.log(data);
+            console.log(data, "hi jsjbdjk");
             if (data.Response === "True") {
                 // If the API returns valid data, display the search results
                 var movies = data.Search;
@@ -41,10 +36,10 @@ $(document).ready(function () {
                                         <div class="card-body">
                                             <h5 class="card-title">${movieData.Title}</h5>
                                             <p class="card-text">Released: ${movieData.Year}</p>
-                                            
-                                            <a class="btn btn-primary addToFavorites" data-imdbid="${imdbID}" ${isFavorite ? 'disabled' : ''}>Add to Favorites</a>
-
-                                            <a class="btn btn-primary details" data-imdbid="${imdbID}">Details</a>
+                                            <a class="btn btn-primary addToFavorites" data-imdbid="${imdbID}" ${
+                            isFavorite ? 'disabled' : ''
+                        }>Add to Favorites</a>
+                                            <a href="#" class= "btn btn-primary details" data-imdbid="${imdbID}">Details</a>
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +75,7 @@ $(document).ready(function () {
     function displayFavorites() {
         var favorites = getFavorites();
         var favoritesHTML = ""; // Initialize an empty string to store the HTML for favorites
-    
+
         favorites.forEach(function (imdbID) {
             var detailsUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdbID;
             $.ajax({
@@ -99,14 +94,14 @@ $(document).ready(function () {
                                     <div class="card-body">
                                         <h5 class="card-title">${data.Title}</h5>
                                         <p class="card-text">Released: ${data.Year}</p>
-                                        <a class="btn btn-primary details" data-imdbid="${data.imdbID}">Details</a>
+                                        <a href="#" class="btn btn-primary details" data-imdbid="${data.imdbID}">Details</a>
                                         <a class="btn btn-primary delete" data-imdbid="${data.imdbID}">Remove From Favorites</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     `;
-    
+
                     // After iterating through all favorites, set the HTML to the #favorites element
                     if (favoritesHTML !== "") {
                         $("#favorites").html(favoritesHTML);
@@ -117,18 +112,15 @@ $(document).ready(function () {
                 error: function () {
                     // Handle error if details cannot be fetched
                     console.log("Error fetching movie details.");
-                }
+                },
             });
         });
     }
-    
-
-    
 
     $(document).on("click", ".details", function () {
         var imdbID = $(this).data("imdbid");
         var detailsUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdbID;
-    
+
         $.ajax({
             url: detailsUrl,
             method: "GET",
@@ -143,36 +135,31 @@ $(document).ready(function () {
                 $("#movieDetailsImdbRating").text("IMDb Rating: " + data.imdbRating + "/10");
                 $("#movieDetailsReleased").text("Released: " + data.Year);
                 // Add other movie details here (e.g., Plot, Director, etc.)
-    
+
                 // Show the movie details card
                 $("#movieDetailsCard").removeClass("d-none");
             },
             error: function () {
                 // Handle error if details cannot be fetched
                 console.log("Error fetching movie details.");
-            }
+            },
         });
     });
-    
 
-    // Event delegation for the "Close" button inside the movie details card
-$(document).on("click", "#closeDetailsBtn", function () {
-    // Hide the movie details card
-    $("#movieDetailsCard").addClass("d-none");
-});
-
-    
+    $(document).on("click", "#closeDetailsBtn", function () {
+        // Hide the movie details card
+        $("#movieDetailsCard").addClass("d-none");
+    });
 
     $(document).on("click", ".addToFavorites", function () {
         var imdbID = $(this).data("imdbid");
-        alert("MOVIE HAS BEEN ADDED TO YOUOR LIST");
+        alert("MOVIE HAS BEEN ADDED TO YOUR LIST");
         var favorites = getFavorites();
         if (!favorites.includes(imdbID)) {
             favorites.push(imdbID);
             updateFavorites(favorites);
             $(this).attr("disabled", true);
         }
-        
     });
 
     $(document).on("click", ".delete", function () {

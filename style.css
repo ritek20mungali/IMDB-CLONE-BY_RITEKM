@@ -260,6 +260,7 @@ button.btn {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
+    margin-top: 200px;
     border-radius: 25px;
     padding: 10px;
     background-color: rgb(26, 24, 24);
@@ -344,3 +345,6 @@ button.btn {
     border:2px solid green;
 
 }
+
+
+
